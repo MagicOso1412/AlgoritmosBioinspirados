@@ -10,7 +10,7 @@ def aptitud(individuo):
     for i in range(len(individuo)):
         aux += individuo[i]*(i**2)
     return aux
-        
+
 poblacion = [I1,I2,I3,I4,I5,I6]
 for individuo in poblacion:
-    print(aptitud(individuo))
+  print(aptitud(individuo))
