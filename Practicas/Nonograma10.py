@@ -319,23 +319,23 @@ def plot_solution(solution, rows, cols, row_constraints, col_constraints, title=
 # Ejemplo de uso
 if __name__ == "__main__":
     # Definir un nonograma (heart)
-    rows = 5
-    cols = 5
-    row_constraints = [[3], [5], [1,1,1], [5], [1,1]]
-    col_constraints = [[3], [2,2], [4], [2,2], [3]]
+    rows = 10
+    cols = 10
+    row_constraints = [[10], [3,3], [2,1,2], [1,2,1,1], [1,2,1], [1,2,1], [1,2,1,1], [2,1,2], [3,3], [10]]
+    col_constraints = [[10], [3,3], [2,1,1,2], [1,1,1,1], [1,1], [1,1,1,1], [1,4,1], [2,2,2], [3,3], [10]]
 
     # Parámetro epsilon para el criterio de parada por convergencia
     epsilon = 0.5  # Diferencia máxima aceptable entre el mejor y el peor fitness
 
     # Ejecutar el algoritmo genético
     best_solution, fitness_history, generations_executed, termination_reason = genetic_algorithm(
-        population_size=100,  # Población más grande para mejor convergencia
+        population_size=1000,  # Población más grande para mejor convergencia
         rows=rows,
         cols=cols,
         row_constraints=row_constraints,
         col_constraints=col_constraints,
-        max_generations=1000,  # Máximo número de generaciones
-        mutation_rate=0.05,
+        max_generations=200,  # Máximo número de generaciones
+        mutation_rate=0.5,
         crossover_rate=0.8,
         epsilon=epsilon  # Parámetro para el criterio de parada por convergencia
     )
