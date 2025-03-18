@@ -59,7 +59,7 @@ def tournament_selection(population, fitness_values, tournament_size=4):
 
 def genetic_algorithm(population_size, rows, cols, row_constraints, col_constraints, mutation_rate, crossover_rate,
                       max_generations=1500):
-    random.seed(123)
+    random.seed()
     population = [generate_individual(rows, cols) for _ in range(population_size)]
     best_solution, best_fitness, generation = None, float('inf'), 0
     fitness_history = []
@@ -93,10 +93,12 @@ def genetic_algorithm(population_size, rows, cols, row_constraints, col_constrai
 
 def plot_solution(solution, rows, cols):
     grid = np.array(solution).reshape(rows, cols)
-    plt.imshow(grid, cmap='binary')
+    grid = np.transpose(grid)  # Corrige la orientación
+    plt.imshow(grid, cmap='binary', origin='upper')  # Asegura que la imagen se dibuje correctamente
     plt.grid(True)
     plt.title("Solución del Nonograma")
     plt.show()
+
 
 
 # Parámetros y ejecución
