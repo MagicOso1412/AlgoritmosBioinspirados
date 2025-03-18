@@ -59,7 +59,10 @@ def tournament_selection(population, fitness_values, tournament_size=4):
 
 def genetic_algorithm(population_size, rows, cols, row_constraints, col_constraints, mutation_rate, crossover_rate,
                       max_generations=1500):
-    random.seed()
+    # seed = 123
+    seed = random.randint(0, 1000000)  # Genera una semilla aleatoria
+    random.seed(seed)  # Establece la semilla
+    print(f"Semilla utilizada: {seed}")  # Imprime la semilla generada
     population = [generate_individual(rows, cols) for _ in range(population_size)]
     best_solution, best_fitness, generation = None, float('inf'), 0
     fitness_history = []
